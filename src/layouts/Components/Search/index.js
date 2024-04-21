@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import HeadlessTippy from "@tippyjs/react/headless";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { Wrapper as PopperWrapper } from "../../../Popper";
-import AccountItem from "../../../AccountItem";
-import { SearchIcon } from "../../../Icons";
-import { useDebounce } from "../../../../hooks";
-import * as searchService from "../../../../apiServices/searchServices";
+import { Wrapper as PopperWrapper } from "../../../Components/Popper";
+import AccountItem from "../../../Components/AccountItem";
+import { SearchIcon } from "../../../Components/Icons";
+import { useDebounce } from "../../../hooks";
+import * as searchService from "../../../services/searchServices";
 import styles from "./Search.module.scss";
 import classNames from "classnames/bind";
 
@@ -18,12 +18,12 @@ const Search = () => {
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const debounce = useDebounce(searchValue, 500);
+  const debouncedValue = useDebounce(searchValue, 500);
 
   const inputRef = useRef();
 
   useEffect(() => {
-    if (!debounce.trim()) {
+    if (!debouncedValue.trim()) {
       setSearchResults([]);
       return;
     }
@@ -31,14 +31,14 @@ const Search = () => {
     const fetchApi = async () => {
       setLoading(true);
 
-      const result = await searchService.search(debounce);
+      const result = await searchService.search(debouncedValue);
 
       setSearchResults(result);
       setLoading(false);
     };
 
     fetchApi();
-  }, [debounce]);
+  }, [debouncedValue]);
 
   const handleClear = () => {
     setSearchValue("");
@@ -100,7 +100,6 @@ const Search = () => {
             className={cx("search-btn")}
             onMouseDown={(e) => e.preventDefault()}
           >
-            {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
             <SearchIcon />
           </button>
         </div>

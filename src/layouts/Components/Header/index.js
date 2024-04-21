@@ -12,18 +12,18 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-import images from "../../../../assets/image";
+import images from "../../../assets/image";
 import Tippy from "@tippyjs/react/headless";
-import Button from "../../../Button";
+import Button from "../../../Components/Button";
 
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";
-import Menu from "../../../Popper/Menu";
-import { InboxIcon, MessageIcon } from "../../../Icons";
-import Image from "../../../Image";
+import Menu from "../../../Components/Popper/Menu";
+import { InboxIcon, MessageIcon } from "../../../Components/Icons";
+import Image from "../../../Components/Image";
 import Search from "../Search";
 import { Link } from "react-router-dom";
-import routesConfig from "../../../../config/routes";
+import config from "../../../config";
 
 const cx = classNames.bind(styles);
 
@@ -34,116 +34,6 @@ const MENU_ITEMS = [
     children: {
       title: "Language",
       data: [
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
-        {
-          type: "language",
-          code: "en",
-          title: "English",
-        },
-        {
-          type: "language",
-          code: "vi",
-          title: "Tiếng Việt",
-        },
         {
           type: "language",
           code: "en",
@@ -210,7 +100,7 @@ const Header = () => {
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
         {/* Logo */}
-        <Link to={routesConfig.home} className={cx("logo-link")}>
+        <Link to={config.routes.home} className={cx("logo-link")}>
           <img src={images.logo} alt="Tiktok" />
         </Link>
 
