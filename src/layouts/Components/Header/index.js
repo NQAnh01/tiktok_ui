@@ -14,7 +14,7 @@ import {
 
 import images from "../../../assets/image";
 import Tippy from "@tippyjs/react/headless";
-import Button from "../../../Components/Button";
+import Button from "../../../Components/Button/Button";
 
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";
